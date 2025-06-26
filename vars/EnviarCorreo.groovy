@@ -32,7 +32,7 @@ def call(Map params) {
     """
 
     emailext(
-        to: "$DEFAULT_RECIPIENTS",
+        to: "juanfernandoam@hotmail.com",
         subject: "Imagen Docker actualizada - ${repositorio}",
         body: mensaje,
         mimeType: 'text/html'
