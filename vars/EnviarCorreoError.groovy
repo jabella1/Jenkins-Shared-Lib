@@ -9,6 +9,7 @@ def call(Map params) {
     def job = params.nombreJob ?: (env.JOB_NAME ?: "job_desconocido")
     def build = params.buildNumero ?: (env.BUILD_NUMBER ?: "build_desconocido")
     def fechaHora = new Date().format("yyyy-MM-dd HH:mm")
+    def logFile = env.LOG_FILE ?: "error-${etapa}-${build}.log"
 
     def mensaje = """
         <p>Ocurrió un fallo en el pipeline de Jenkins.</p>
@@ -27,6 +28,6 @@ def call(Map params) {
         to: EMAILS_ERROR,
         subject: "ERROR - Etapa: ${etapa} | Job: ${job} | Build #${build}",
         body: mensaje,
-        attachmentsPattern: "${env.LOG_FILE}",
+        attachmentsPattern: "${logFile}",
         mimeType: 'text/html')
 }
