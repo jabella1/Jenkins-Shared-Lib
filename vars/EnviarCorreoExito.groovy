@@ -8,20 +8,26 @@ def call(Map params) {
         error("Falta el parámetro obligatorio: 'sha'")
     }
 
+    if (!params?.nombreProyecto) {
+        error("Falta el parámetro obligatorio: 'nombreProyecto'")
+    }
+
+
     def repositorio = params.repositorio
-    def sha = params.sha  
+    def sha = params.sha
+    def nombreProyecto = params.nombreProyecto
 
     def fechaHora = new Date().format("yyyy-MM-dd HH:mm")
     def remitente = params.remitente ?: "Equipo DevOps"
 
     def mensaje = """
-        <p>Les informamos que se ha realizado exitosamente la subida de la nueva imagen a DockerHub, la cual será utilizada en el pipeline de Jenkins.</p>
+        <p>Les informamos que se ha realizado exitosamente el despliegue de la nueva imagen subida a DockerHub del proyecto ${nombreProyecto}.</p>
 
         <ul>
           <li><strong>Repositorio:</strong> ${repositorio}</li>
           <li><strong>SHA:</strong> ${sha}</li>
-          <li><strong>Fecha y hora de carga:</strong> ${fechaHora}</li>
-          <li><strong>Descripción:</strong> Imagen actualizada con los últimos cambios requeridos para el proceso de integración continua.</li>
+          <li><strong>Fecha y hora de despliegue:</strong> ${fechaHora}</li>
+          <li><strong>Descripción:</strong> Imagen actualizada con los últimos cambios requeridos para el proceso de integración y despliegue continuo</li>
         </ul>
 
         <p>Quedamos atentos a cualquier observación.</p>
