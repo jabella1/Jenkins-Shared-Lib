@@ -4,9 +4,9 @@ EMAILS_ERROR = [
 
 def call(Map params) {
     
-    def etapa = params.nombreEtapa ?: (script.env.STAGE_NAME ?: "etapa_desconocida")
-    def job = params.nombreJob ?: (script.env.JOB_NAME ?: "job_desconocido")
-    def build = params.buildNumero ?: (script.env.BUILD_NUMBER ?: "build_desconocido")
+    def etapa = params.nombreEtapa ?: (env.STAGE_NAME ?: "etapa_desconocida")
+    def job = params.nombreJob ?: (env.JOB_NAME ?: "job_desconocido")
+    def build = params.buildNumero ?: (env.BUILD_NUMBER ?: "build_desconocido")
     def fechaHora = new Date().format("yyyy-MM-dd HH:mm")
 
     def mensaje = """
