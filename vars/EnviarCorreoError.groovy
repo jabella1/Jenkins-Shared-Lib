@@ -1,6 +1,6 @@
 
 def call(Map params) {
-    
+
     def EMAILS_ERROR = [
         'jabella@nexura.com.co'
     ].join(',')
@@ -27,5 +27,6 @@ def call(Map params) {
         to: EMAILS_ERROR,
         subject: "ERROR - Etapa: ${env.STAGE_NAME} | Job: ${env.JOB_NAME} | Build #${env.BUILD_NUMBER}",
         body: mensaje,
-        attachmentsPattern: "${env.LOG_FILE}")
+        attachmentsPattern: "${env.LOG_FILE}",
+        mimeType: 'text/html')
 }
