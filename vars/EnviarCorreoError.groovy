@@ -25,7 +25,7 @@ def call(Map params) {
 
      emailext(
         to: EMAILS_ERROR,
-        subject: "ERROR - Etapa: ${env.STAGE_NAME} | Job: ${env.JOB_NAME} | Build #${env.BUILD_NUMBER}",
+        subject: "ERROR - Etapa: ${etapa} | Job: ${job} | Build #${build}",
         body: mensaje,
         attachmentsPattern: "${env.LOG_FILE}",
         mimeType: 'text/html')
