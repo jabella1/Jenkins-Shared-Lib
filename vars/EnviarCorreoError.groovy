@@ -1,9 +1,10 @@
-EMAILS_ERROR = [
-    'jabella@nexura.com.co'
-].join(',')
 
 def call(Map params) {
     
+    def EMAILS_ERROR = [
+        'jabella@nexura.com.co'
+    ].join(',')
+
     def etapa = params.nombreEtapa ?: (env.STAGE_NAME ?: "etapa_desconocida")
     def job = params.nombreJob ?: (env.JOB_NAME ?: "job_desconocido")
     def build = params.buildNumero ?: (env.BUILD_NUMBER ?: "build_desconocido")
