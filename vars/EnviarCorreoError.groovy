@@ -3,7 +3,8 @@ def call(Map params) {
 
     def EMAILS_ERROR = [
         'jabella@nexura.com.co', 
-        'lider.desarrollo@PASSWORDCONSULTING.onmicrosoft.com'
+        'lider.desarrollo@PASSWORDCONSULTING.onmicrosoft.com',
+        'desarrolladorP3@PASSWWORDCONSULTING.onmicrosoft.com'
     ].join(',')
 
     def etapa = params.nombreEtapa ?: (env.STAGE_NAME ?: "etapa_desconocida")
